@@ -10,9 +10,8 @@ $(document).ready(function () {
         $('.loading').css('display', 'block');
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://metaveri.geoportal.gov.tr/csbgeoportalusermanagement/CswService/Csw?REQUEST=GetCapabilities&SERVICE=CSW&ACCEPTVERSION=2.0.2,2.0.0,0.7.2&outputFormat=application/xml",
-            // url: "http://www.nationaalgeoregister.nl/geonetwork/srv/dut/csw?REQUEST=GetCapabilities&SERVICE=CSW&ACCEPTVERSION=2.0.2,2.0.0,0.7.2&outputFormat=application/xml", 
             type: "GET",
-            crossDomain: true,
+            //crossDomain: true,
             dataType: 'xml',
             success: function (data) {
                 s = new XMLSerializer();
