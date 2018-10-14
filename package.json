@@ -1,0 +1,22 @@
+{
+  "name": "meta-search-node",
+  "version": "1.0.0",
+  "description": "geoportal csw metadata search",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "metadata",
+    "csw",
+    "geoportal",
+    "çşb",
+    "getrecords"
+  ],
+  "author": "Arda Çetinkaya",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}

@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+
+<style>
+div.ex2 {
+    width: 100%px;
+    height: 1000px;
+    overflow: auto;
+}
+
+.loading{
+    display: none;
+}
+
+#get-records{
+    margin-top:5%;
+}
+</style>
+
+
+
+<div class="container">
+<h1>CSW Meta Seach</h1>
+<hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form id="get-capabilities" method="post" action="https://metaveri.geoportal.gov.tr/csbgeoportalusermanagement/CswService/Csw?REQUEST=GetCapabilities&SERVICE=CSW&ACCEPTVERSION=2.0.2,2.0.0,0.7.2&outputFormat=application/xml">
+                <button class="btn btn-dark" type="submit">GetCapabilities!</button>
+            </form><hr>
+            <form id="get-records" method="post" action="https://metaveri.geoportal.gov.tr/csbgeoportalusermanagement/CswService/Csw">
+                <input type="text" class="form-control" placeholder = "Anahtar Kelime" id="keyword" value="">
+                <input type="number" class="form-control"  id="numberofrecords" value="1">
+                <button class="btn btn-dark" type="submit">GetRecords!</button>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <label for="comment">Response:</label>
+            <div  class="ex2">
+                <img class="loading" src="/img/loading.gif" alt="">
+                <pre><code id="response" class="xml"></code></pre>
+                <p id="records"></p>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+
+<% include ./partials/footer %>
