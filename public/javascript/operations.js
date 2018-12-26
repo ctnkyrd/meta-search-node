@@ -38,24 +38,23 @@ $(document).ready(function () {
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://metaveri.geoportal.gov.tr/csbgeoportalusermanagement/CswService/Csw",
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Basic ZW50ZWdyYXN5b25hcmRhOlR1Y2JzPzA3YQ==');
+                xhr.setRequestHeader('Authorization', 'Basic Q1JOXzEwMDpDcm4hMjAxOA==');
             },
             type: "post",
             contentType: 'text/xml',
-            data: '<?xml version="1.0" ?>' +
-                '<csw:GetRecords maxRecords="'+numRecords+'" outputFormat="application/xml" outputSchema="http://www.opengis.net/cat/csw/2.0.2" resultType="results" service="CSW" version="2.0.2" xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd">' +
+            data: '<?xml version="1.0" encoding="UTF-8"?> ' +
+                '<csw:GetRecords  maxRecords="'+numRecords+'" xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" service="CSW" version="2.0.2">' +
                 '<csw:Query typeNames="csw:Record">' +
-                '<csw:ElementSetName>full</csw:ElementSetName>' +
-                '<csw:Constraint version="1.1.0">' +
-                '<ogc:Filter>' +
-                '<ogc:PropertyIsLike escapeChar="\" singleChar="_" wildCard="%">' +
-                '<ogc:PropertyName>csw:AnyText</ogc:PropertyName>' +
-                '<ogc:Literal>%'+keyword+'%</ogc:Literal>' +
-                '</ogc:PropertyIsLike>' +
-                '</ogc:Filter>' +
-                '</csw:Constraint>' +
-                '</csw:Query>' +
-                '</csw:GetRecords>',
+                '<csw:Constraint version="1.1.0">'+
+                '<Filter xmlns="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml">'+
+                  '<PropertyIsLike wildCard="%" singleChar="_" escape="\\">'+
+                    '<PropertyName>AnyText</PropertyName>'+
+                    '<Literal>%'+keyword+'%</Literal>'+
+                  '</PropertyIsLike>'+
+                '</Filter>'+
+              '</csw:Constraint>' +
+            '</csw:Query>' +
+            '</csw:GetRecords>',
             dataType: "text",
             success: function (d) {
                 // console.log(d);
