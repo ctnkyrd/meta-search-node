@@ -27,7 +27,6 @@ $(document).ready(function () {
         });
     });
 
-
     $(document).on("submit", "#get-records", function (e) {
         e.preventDefault();
         $('#records').text('');
@@ -57,10 +56,11 @@ $(document).ready(function () {
             '</csw:GetRecords>',
             dataType: "text",
             success: function (d) {
+                debugger;
                 // console.log(d);
                 // s = new XMLSerializer();
                 // var newXmlStr = s.serializeToString(d);
-                $('#records').text(d);
+                $('#response').text(d.replaceAll('>', '>\n'));
                 $('.loading').css('display', 'none');
                 highlightCodeBlock();
             },
@@ -76,3 +76,8 @@ function highlightCodeBlock() {
         hljs.highlightBlock(block);
     });
 }
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};

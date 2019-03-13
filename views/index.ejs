@@ -3,7 +3,7 @@
 <style>
 div.ex2 {
     width: 100%px;
-    height: 1000px;
+    height: 500px;
     overflow: auto;
 }
 
@@ -19,7 +19,11 @@ div.ex2 {
 
 
 <div class="container">
-<h1>ÇŞB Geoportal CSW Meta Seach</h1>
+<hr>
+<h3>
+  Geoportal Metaveri Portali
+  <small class="text-muted">CSW GetRecords</small>
+</h3>
 <hr>
 
     <div class="row">
@@ -32,6 +36,10 @@ div.ex2 {
                 <input type="number" class="form-control"  id="numberofrecords" value="1">
                 <button class="btn btn-dark" type="submit">GetRecords!</button>
             </form>
+            <hr>
+            <div class="alert alert-dark" role="alert">
+            <a href="https://github.com/ctnkyrd/meta-search-node" style="color:black"><i class="fab fa-github"></i> Github</a>
+            </div>
         </div>
         <div class="col-md-8">
             <label for="comment">Response:</label>
